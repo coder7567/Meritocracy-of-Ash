@@ -17,15 +17,16 @@ float rand(vec2 p) {
 }
 
 void fragment() {
-    vec2 uv = UV;
+    vec2 tilted_uv = UV;
+	tilted_uv.x += (tilted_uv.y - 0.5) * slant; 
     float final_rain = 0.0;
 
     for (float i = 1.0; i <= 3.0; i++) {
-        float scale = i * 40.0;
+        float scale = i * 15.0;
         float speed_mod = i * 0.5;
 
-		vec2 st = uv * vec2(scale, scale * 0.1);
-		st.x += uv.y * slant;
+		vec2 st = tilted_uv * vec2(scale, scale * 0.1);
+		
 
 		float col = floor(st.x);
 		float seed = rand(vec2(col, i * 123.45));
@@ -41,7 +42,7 @@ void fragment() {
 
         // Splash Logic
 		float splash_t = fract(TIME * (rain_speed + seed) * 1.5 + seed); // Added seed so they don't all pop at once
-		float splash_mask = smoothstep(1.0 - splash_height, 1.0, uv.y);
+		float splash_mask = smoothstep(1.0 - splash_height, 1.0, UV.y);
 		float current_width = splash_width * i * splash_t;
 		float splash_shape_x = smoothstep(current_width, 0.0, abs(fract(draw_x) - 0.5));
 
