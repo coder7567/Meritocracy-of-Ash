@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://dleqvitelema"]
+
+[ext_resource type="PackedScene" uid="uid://das6ng4whvi0y" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://ryvcdix07hal" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bbtojkcpg2tu0" path="res://scenes/porcelain_chalice.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ddf515jaqnjdx" path="res://scenes/ui.tscn" id="4_1bvp3"]
+[ext_resource type="Resource" uid="uid://baey8qroiaegy" path="res://porcelain_chalice.tres" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://iqwjg0npr3hl" path="res://scripts/inventory/inventory_manager.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://bsst4t5bq7pbm" path="res://scripts/SECURITY/security_system.gd" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ladkehohfa4n" path="res://prowler_drone.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://jgnysxx20e5t" path="res://SecurityHUD.tscn" id="9_kek77"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_ig7tw")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(350, 26)
+texture = ExtResource("2_0xm2m")
+
+[node name="PorcelainChalice" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(373, 177)
+item_data = ExtResource("4_7mycd")
+inventory_path = NodePath("../InventoryManager")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="InventoryManager" type="Node" parent="."]
+script = ExtResource("5_lquwl")
+
+[node name="SecuritySystem" type="Node" parent="."]
+script = ExtResource("7_272bh")
+
+[node name="ProwlerDrone" parent="." instance=ExtResource("8_5vw27")]
+position = Vector2(-275, -249)
+
+[node name="ProwlerDrone2" parent="." instance=ExtResource("8_5vw27")]
+position = Vector2(361, -176)
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("9_kek77")]

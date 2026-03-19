@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://baey8qroiaegy"]
+
+[ext_resource type="Script" uid="uid://cu31eb2x73jen" path="res://scripts/inventory/inventory_item.gd" id="1_frbgl"]
+
+[resource]
+script = ExtResource("1_frbgl")
+item_id = "porcelain_chalice"
+display_name = "Porcelain Chalice"
+description = "A delicate porcelain chalice. It feels strangely important."
+stackable = false
+max_stack = 1
+clarity = 100.0
+weight = 1.5
+key_item = true
+metadata/_custom_type_script = "uid://cu31eb2x73jen"

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://das6ng4whvi0y"]
+
+[ext_resource type="Script" uid="uid://g511kaxsrt6c" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bpogi51o6ptef" path="res://arrow.jpg" id="2_g2els"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 11.0797
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(0.159999, 0.480001)
+texture = ExtResource("2_g2els")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(131, 0)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+scale = Vector2(6.24, 14.3301)
+shape = SubResource("CircleShape2D_g2els")

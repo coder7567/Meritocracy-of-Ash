@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbtojkcpg2tu0"]
+
+[ext_resource type="Script" uid="uid://b0fm72e5g0k65" path="res://scenes/porcelain_chalice.gd" id="1_ah3mu"]
+[ext_resource type="Texture2D" uid="uid://csdeg05on7mep" path="res://PC.jpg" id="2_c1j7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6162s"]
+size = Vector2(80, 96)
+
+[node name="PorcelainChalice" type="Area2D" groups=["interactable"]]
+collision_layer = 4
+script = ExtResource("1_ah3mu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.199999, 0.184506)
+texture = ExtResource("2_c1j7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_6162s")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://jgnysxx20e5t"]
+
+[ext_resource type="Script" uid="uid://64khxfyiqg1d" path="res://SecurityHUD.gd" id="1_q2itn"]
+
+[sub_resource type="Gradient" id="Gradient_cssky"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q2itn"]
+gradient = SubResource("Gradient_cssky")
+
+[sub_resource type="Gradient" id="Gradient_bb8v7"]
+offsets = PackedFloat32Array(0.987013, 0.993506, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r0k5g"]
+gradient = SubResource("Gradient_bb8v7")
+
+[sub_resource type="Gradient" id="Gradient_vm3cm"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ts2f2"]
+gradient = SubResource("Gradient_vm3cm")
+
+[sub_resource type="Gradient" id="Gradient_cnteg"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ae8x4"]
+gradient = SubResource("Gradient_cnteg")
+
+[sub_resource type="Gradient" id="Gradient_ichl5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g86n4"]
+gradient = SubResource("Gradient_ichl5")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_q2itn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+offset_top = 595.0
+offset_right = 516.0
+offset_bottom = 1095.0
+scale = Vector2(0.81748, 0.0978261)
+
+[node name="Level1" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_q2itn")
+
+[node name="Level2" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_r0k5g")
+
+[node name="Level3" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ts2f2")
+
+[node name="Level4" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ae8x4")
+
+[node name="Level5" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_g86n4")

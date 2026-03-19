@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddf515jaqnjdx"]
+
+[ext_resource type="Script" uid="uid://bsfsc18yyp1l3" path="res://scenes/ui.gd" id="1_nt7q6"]
+[ext_resource type="Shader" uid="uid://ih3byxblkdw5" path="res://scenes/ui.gdshader" id="2_x4jx1"]
+[ext_resource type="Script" uid="uid://pqf67kxoewho" path="res://scripts/inventory/inventory_debug_label.gd" id="3_yev5y"]
+[ext_resource type="Script" uid="uid://dhjhbrjye5fwt" path="res://scripts/inventory/inventory_menu.gd" id="4_gdt2y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yev5y"]
+shader = ExtResource("2_x4jx1")
+shader_parameter/rain_speed = 1.6
+shader_parameter/rain_length = 0.03
+shader_parameter/rain_width = 0.003
+shader_parameter/slant = -0.22
+shader_parameter/opacity = 0.35
+shader_parameter/wobble_amount = 0.015
+shader_parameter/wobble_speed = 3.0
+shader_parameter/wobble_variation = 2.0
+shader_parameter/splash_height = 0.08
+shader_parameter/splash_width = 0.025
+shader_parameter/splash_strength = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" groups=["game_ui"]]
+script = ExtResource("1_nt7q6")
+
+[node name="Flash" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RainOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yev5y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryDebugLabel" type="Label" parent="."]
+offset_right = 138.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 20
+text = "HELLO DEBUG"
+script = ExtResource("3_yev5y")
+
+[node name="InventoryPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -289.0
+offset_right = 392.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_gdt2y")
+
+[node name="TitleLabel" type="Label" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -361.0
+offset_top = 18.0
+offset_right = 353.0
+offset_bottom = 81.0
+grow_horizontal = 2
+
+[node name="ItemList" type="ItemList" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -186.5
+offset_right = 350.0
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DescriptionLabel" type="Label" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -349.0
+offset_top = -170.0
+offset_right = 342.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+autowrap_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -68.0
+offset_right = -12.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="StaminaBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -27.0
+offset_right = -73.0
+grow_vertical = 0
+scale = Vector2(1.96, 1.96)
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -119.0
+offset_top = -27.0
+offset_right = -55.0
+offset_bottom = -4.0
+scale = Vector2(1.52, 1.52)
+text = "Stamina"
