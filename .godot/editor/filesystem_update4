@@ -1,0 +1,11 @@
+res://main.tscn
+res://scenes/ui.gdshader
+res://scripts/inventory/inventory_debug_label.gd
+res://scenes/player.tscn
+res://scenes/ui.tscn
+res://scenes/zones.tscn
+res://scenes/porcelain_chalice.tscn
+res://prowler_drone.tscn
+res://SecurityHUD.tscn
+res://scenes/player.gd
+res://scenes/ui.gd
